@@ -17,13 +17,12 @@ RUN cd ~ && git clone https://gitee.com/yutiansut/QADESK_BASIC && cd QADESK_BASI
 
 
 
-RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 3B4FE6ACC0B21F32  40976EAF437D05B5\
-  && apt update
+RUN  apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 3B4FE6ACC0B21F32 40976EAF437D05B5 && apt update
   
 RUN apt install npm -y \
   && npm install n -g \
   && n stable
-  
+   
 # RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 3B4FE6ACC0B21F32  40976EAF437D05B5\
 # && apt update \
 # && apt install -y curl\
@@ -48,3 +47,4 @@ RUN chmod +x /root/run-community.sh
 CMD ["bash", "/root/run-community.sh"]
 
 EXPOSE 80
+EXPOSE 8787

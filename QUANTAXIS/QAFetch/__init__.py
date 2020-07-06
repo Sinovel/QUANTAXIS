@@ -41,7 +41,7 @@ from QUANTAXIS.QAFetch import QAHexun as QAHexun
 from QUANTAXIS.QAFetch import QAfinancial
 from QUANTAXIS.QAFetch.base import get_stock_market
 from QUANTAXIS.QAFetch import QAQAWEB as QAWEB
-
+from QUANTAXIS.QAFetch import QAKQ as QAKQ
 
 def use(package):
     if package in ['wind']:
@@ -172,7 +172,7 @@ def QA_fetch_get_bond_realtime(package, code):
 
 def QA_fetch_get_stock_block(package):
     Engine = use(package)
-    if package in ['tdx', 'pytdx', 'ths', 'QA']:
+    if package in ['tdx', 'pytdx', 'ths', 'tushare', 'QA']:
         return Engine.QA_fetch_get_stock_block()
     else:
         return 'Unsupport packages'
@@ -317,6 +317,9 @@ def QA_fetch_get_future_transaction_realtime(package, code):
     else:
         return 'Unsupport packages'
 
+
+def QA_fetch_get_future_domain():
+    return QAKQ.QA_fetch_get_future_domain()
 
 def QA_fetch_get_future_realtime(package, code):
     Engine = use(package)

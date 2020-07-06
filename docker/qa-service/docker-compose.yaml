@@ -12,6 +12,7 @@ services:
         ports:
             - "8888:8888"
             - "81:80"
+            - "8787:8787"
         environment:
           - TZ=Asia/Shanghai
           - LANG=C.UTF-8
@@ -143,7 +144,7 @@ services:
                 ipv4_address: 172.19.0.9
 
     editer:
-        image: yutiansut/qaeditor:latest
+        image: daocloud.io/quantaxis/qaeditor:latest
         container_name: qaeditor
         networks: 
             qanetwork:

@@ -385,8 +385,8 @@ class _quotation_base():
     def date(self):
         index = self.data.index.remove_unused_levels()
         try:
-            return index.levels[0] if 'date' in self.data.index.names else list(
-                set(self.datetime.date)
+            return index.levels[0] if 'date' in self.data.index.names else sorted(
+                list(set(self.datetime.date))
             )
         except:
             return None
@@ -920,7 +920,7 @@ class _quotation_base():
     def aggregate(self, func, axis=0, *args, **kwargs):
         return self.new(self.data.aggregate(func, axis=0, *args, **kwargs))
 
-    def tail(self, lens):
+    def tail(self, lens=5):
         """返回最后Lens个值的DataStruct
 
         Arguments:
@@ -932,7 +932,7 @@ class _quotation_base():
 
         return self.new(self.data.tail(lens))
 
-    def head(self, lens):
+    def head(self, lens=5):
         """返回最前lens个值的DataStruct
 
         Arguments:
